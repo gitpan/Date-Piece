@@ -161,11 +161,17 @@ ok($today, 'today');
   is($list[0], $d1);
   is($list[$_], $d1+$_) for(1..5);
   is($list[6], $d2);
+  # backwards
   @list = $d2->thru($d1);
   is(scalar(@list), 7);
   is($list[0], $d2);
   is($list[$_], $d2-$_) for(1..5);
   is($list[6], $d1);
+  # non-date
+  @list = $d1->thru("$d2");
+  is($list[0], $d1);
+  is($list[$_], $d1+$_) for(1..5);
+  is($list[6], $d2);
 }
 
 

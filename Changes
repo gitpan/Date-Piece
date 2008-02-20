@@ -1,5 +1,11 @@
 Revision history for Date-Piece
 
+v0.0.2 2008-02-20
+
+  * inclusion of bin/day frontend
+
+  * allow input to thru() to be a string
+
 v0.0.1 2007-12-30
 
   * first public release

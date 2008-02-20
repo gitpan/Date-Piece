@@ -1,5 +1,5 @@
 package Date::Piece;
-$VERSION = v0.0.1;
+$VERSION = v0.0.2;
 
 use warnings;
 use strict;
@@ -469,6 +469,7 @@ $other_date (inclusive.)
 sub iterator {
   my $self = shift;
   my ($other) = @_;
+  ref($other) or $other = ref($self)->new($other);
 
   my $diff = $other - $self;
   my $abs_d = abs($diff);

@@ -1,3 +1,4 @@
+bin/day
 Build.PL
 Changes
 lib/Date/Piece.pm

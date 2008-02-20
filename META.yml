@@ -1,6 +1,6 @@
 ---
 name: Date-Piece
-version: v0.0.1
+version: v0.0.2
 author:
   - 'Eric Wilhelm @ <ewilhelm at cpan dot org>'
 abstract: efficient dates with Time::Piece interoperability
@@ -21,7 +21,7 @@ build_requires:
 provides:
   Date::Piece:
     file: lib/Date/Piece.pm
-    version: v0.0.1
+    version: v0.0.2
   Date::Piece::century_unit:
     file: lib/Date/Piece.pm
   Date::Piece::day_unit:
