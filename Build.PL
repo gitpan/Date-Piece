@@ -30,7 +30,7 @@ my $builder = $build_class->new(
         'http://rt.cpan.org/NoAuth/Bugs.html?Dist=Date-Piece',
       #MailingList => 'mailto:...',
       repository =>
-        'http://scratchcomputing.com/svn/Date-Piece/trunk',
+        'http://svn.scratchcomputing.com/Date-Piece/trunk',
     }
   },
 );

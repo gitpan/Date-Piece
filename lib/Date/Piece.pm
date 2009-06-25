@@ -1,5 +1,5 @@
 package Date::Piece;
-$VERSION = v0.0.2;
+$VERSION = v0.0.3;
 
 use warnings;
 use strict;
@@ -230,6 +230,67 @@ it does in Time::Piece.  Ultimately, a Date::Piece should act exactly
 like a Time::Piece where the time is always midnight (which implies that
 adding seconds upgrades the result to a Time::Piece and etc.)
 
+
+=head2 Y
+
+  $date->Y;
+
+=cut
+
+sub Y {
+  my $self = shift;
+  $self->year;
+} # end subroutine Y definition
+########################################################################
+
+=head2 M
+
+  $date->M;
+
+=cut
+
+sub M {
+  my $self = shift;
+  $self->month;
+} # end subroutine M definition
+########################################################################
+
+=head2 mon
+
+  $date->mon;
+
+=cut
+
+sub mon {
+  my $self = shift;
+  $self->at('16:00')->monname;
+} # end subroutine mon definition
+########################################################################
+
+=head2 monthname
+
+  $date->monthname;
+
+=cut
+
+sub monthname {
+  my $self = shift;
+  $self->at('16:00')->fullmonth;
+} # end subroutine monthname definition
+########################################################################
+
+=head2 D
+
+  $date->D;
+
+=cut
+
+sub D {
+  my $self = shift;
+  $self->day;
+} # end subroutine D definition
+########################################################################
+
 =head2 iso_dow
 
 Returns the day of the week (0-6) with Monday = 0 (as per ISO 8601.)
@@ -438,7 +499,7 @@ sub leap_year {
 =head2 thru
 
 Returns a list ala $start..$end (because overloading doesn't work with
-the '..' construct.)
+the '..' construct.)  Will work forwards or backwards.
 
   my @list = $date->thru($other_date);
 
@@ -473,7 +534,7 @@ sub iterator {
 
   my $diff = $other - $self;
   my $abs_d = abs($diff);
-  my $dir = $diff/$abs_d;
+  my $dir = $abs_d ? $diff/$abs_d : 1;
   my $count = 0;
   my $ref = sub {
     ($count++ > $abs_d) and return;
